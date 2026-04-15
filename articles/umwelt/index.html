@@ -74,6 +74,7 @@
       font-size: 12px; color: var(--ink-faint);
       font-family: 'DM Mono', monospace;
       letter-spacing: 0.05em;
+      margin-top: 2.5rem;
       padding-top: 1.5rem;
       border-top: 1px solid var(--border);
     }
@@ -105,6 +106,9 @@
     .section-rule {
       border: none; border-top: 1px solid var(--border);
       margin: 3rem 0;
+    }
+    .section-rule--top {
+      margin-top: 4.5rem;
     }
 
     h2.section-title {
@@ -140,90 +144,72 @@
       font-family: 'DM Mono', monospace;
       font-size: 10px; letter-spacing: 0.15em;
       text-transform: uppercase; color: var(--ink-muted);
-      margin-bottom: 0.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
     }
     .widget-sublabel {
       font-size: 0.85rem; color: var(--ink-muted);
       margin-bottom: 1.75rem; line-height: 1.5;
     }
 
-    /* ── Widget body ────────────────────────────────────── */
-    .widget-body {
-      display: flex;
-      gap: 2rem;
-      align-items: flex-start;
-    }
-
-    /* Slider column */
-    .slider-col {
+    /* ── Bulb section ───────────────────────────────────── */
+    .bulb-section {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.6rem;
-      flex-shrink: 0;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    /* ── Slider section (horizontal, at bottom) ─────────── */
+    .slider-section {
+      width: 100%;
+    }
+    .slider-labels-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 8px; /* match thumb half-width so labels sit above track ends */
+      margin-bottom: 5px;
     }
     .slider-end-label {
       font-family: 'DM Mono', monospace;
       font-size: 9px; letter-spacing: 0.06em;
       text-transform: uppercase; color: var(--ink-faint);
-      text-align: center;
     }
-    .slider-track-wrap {
-      position: relative;
-      display: flex;
-      align-items: flex-start;
-      gap: 6px;
-      height: 370px;
-    }
-    .org-slider-v {
-      -webkit-appearance: slider-vertical;
-      appearance: slider-vertical;
-      writing-mode: vertical-lr;
-      height: 100%;
-      width: 22px;
+    .org-slider-h {
+      width: 100%;
+      display: block;
       accent-color: var(--accent);
       cursor: pointer;
-      flex-shrink: 0;
     }
-    .slider-emoji-col {
-      position: relative;
-      height: 100%;
-      width: 72px;
-    }
-    .slider-emoji-col .tick {
-      position: absolute;
-      left: 0;
+    .slider-tick-row {
       display: flex;
+      justify-content: space-between;
+      padding: 0 8px;
+      margin-top: 8px;
+    }
+    .tick {
+      display: flex;
+      flex-direction: column;
       align-items: center;
       gap: 4px;
-      font-size: 15px;
+      font-size: 16px;
       line-height: 1;
       cursor: pointer;
       opacity: 0.35;
       transition: opacity 0.15s, transform 0.15s;
-      transform: translateY(-50%);
     }
-    .slider-emoji-col .tick.active {
+    .tick.active {
       opacity: 1;
-      transform: translateY(-50%) scale(1.1);
+      transform: scale(1.2);
     }
     .tick-hz {
       font-family: 'DM Mono', monospace;
-      font-size: 9px;
+      font-size: 8px;
       color: var(--ink-faint);
-      letter-spacing: 0.03em;
-      white-space: nowrap;
+      letter-spacing: 0.02em;
     }
 
-    /* Bulb column */
-    .bulb-col {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.75rem;
-      padding-top: 1rem;
-    }
     .bulb-wrapper {
       position: relative;
       display: flex;
@@ -266,6 +252,10 @@
       font-size: 11px; color: var(--ink-muted);
       text-align: center; letter-spacing: 0.04em;
     }
+    .bulb-caption-name {
+      color: var(--ink);
+      letter-spacing: 0.08em;
+    }
     .bulb-cff {
       font-family: 'DM Mono', monospace;
       font-size: 12px; color: var(--ink-faint);
@@ -274,9 +264,8 @@
 
     /* Obs info */
     .obs-info {
-      margin-top: 1.25rem;
-      width: 100%;
-      text-align: left;
+      max-width: 360px;
+      text-align: center;
     }
     .obs-title {
       font-family: 'Playfair Display', serif;
@@ -308,6 +297,30 @@
     }
     .book-ref-text { font-size: 13px; color: var(--accent); font-weight: 500; }
 
+    /* ── Appendix note ──────────────────────────────────── */
+    .appendix-note {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .appendix-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--ink-faint);
+      margin-bottom: 0.75rem;
+    }
+    .appendix-note h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-weight: 600;
+      color: var(--ink-muted);
+      margin-bottom: 1rem;
+    }
+    .appendix-note p {
+      font-size: 0.88rem; color: var(--ink-muted);
+      line-height: 1.75; margin-bottom: 0.85rem;
+    }
+    .appendix-note p:last-child { margin-bottom: 0; }
+
     .math-formula {
       font-family: 'DM Mono', monospace;
       font-size: 0.9rem;
@@ -337,7 +350,6 @@
   <div class="hero">
     <div class="hero-label">Neuroscience · Perception · Biology</div>
     <h1>Vision has a speed.<br>And we are not <em>the fastest.</em></h1>
-    <p class="hero-sub">Light travels almost instantaneously. But seeing is not the same as light arriving — and different animals process what they see at very different speeds. The same room, the same lamp, experienced in entirely different ways.</p>
     <div class="hero-meta">
       <span>14 April 2026</span>
     </div>
@@ -346,129 +358,133 @@
   <article class="article">
 
     <div class="prose">
-      <p>We take it for granted that we see the world as it is. The lamp on your desk glows steadily. The fly on your wall sits perfectly still until, somehow, it isn't. But what if the reality you experience is not the world itself — just your brain's best reconstruction of it, built at the speed your visual system allows?</p>
+      <p>Light travels almost instantaneously. But seeing takes time. Between light entering your eye and the world appearing in your mind, your visual system has to detect, transmit, and assemble information into a coherent scene. That takes time.</p>
 
-      <p>When light hits your retina, a neuron fires. That signal travels along the optic nerve to your brain. Your brain then assembles thousands of such signals into a coherent scene — and only then do you see something. That entire chain takes time. The rate at which your brain can process successive images — the point at which flickering stops feeling like flickering and becomes smooth, continuous motion — is called your <strong>Critical Flicker Fusion frequency</strong>, or CFF. For humans, it is around 60 Hz.</p>
+      <p>We rarely notice this, because our version of reality feels seamless. But what you experience is not the world as it is. It is your brain's best reconstruction of it, built at the speed your visual system allows. And different organisms run that process at very different speeds.</p>
 
-      <p>Different animals have very different CFFs. And this single fact has some remarkable consequences for how different creatures experience the exact same world.</p>
+      <p>One way to measure visual speed is through something called <strong>Critical Flicker Fusion frequency</strong>, or CFF. Humans are not especially fast. Many other organisms process visual change much more quickly. Consider the lamp on your desk.</p>
     </div>
 
     <hr class="section-rule"/>
-    <h2 class="section-title">See it for yourself</h2>
+    <h2 class="section-title">What does your lamp look like to other eyes?</h2>
 
     <div class="prose">
-      <p>The bulb below is the same throughout — a standard AC light bulb, flickering at 100 Hz. Move the slider down to change the observer, from the slowest visual system to the fastest. Watch what happens to the bulb.</p>
+      <p>The bulb below is the same throughout: a standard AC light bulb flickering at 100 Hz. Move the slider from left to right and watch what changes.</p>
     </div>
 
     <div class="widget-wrapper">
-      <div class="widget-label">Interactive — same bulb, different observer</div>
-      <div class="widget-sublabel">Drag the slider to switch between species. The bulb is simulated to show how it would appear to each organism.</div>
+      <div class="widget-label">The bulb stays the same. The observer changes.</div>
 
-      <div class="widget-body">
+      <!-- Bulb + caption + description (centred) -->
+      <div class="bulb-section">
+        <div class="bulb-wrapper is-on" id="bulb-wrapper">
+          <div class="bulb-halo"></div>
+          <svg class="bulb-svg" viewBox="0 0 100 142" width="130" height="185" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path class="bulb-glass" d="M 50 6 C 26 6, 10 25, 10 48 C 10 65, 20 80, 35 90 L 35 99 L 65 99 L 65 90 C 80 80, 90 65, 90 48 C 90 25, 74 6, 50 6 Z"/>
+            <line class="bulb-wire" x1="43" y1="99" x2="43" y2="86" stroke-width="1.5" stroke-linecap="round"/>
+            <line class="bulb-wire" x1="57" y1="99" x2="57" y2="86" stroke-width="1.5" stroke-linecap="round"/>
+            <polyline class="bulb-filament" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="43,86 45,70 48,80 50,63 52,80 55,70 57,86"/>
+            <rect class="bulb-base" x="35" y="99"  width="30" height="8"  rx="1"/>
+            <rect class="bulb-base" x="37" y="107" width="26" height="8"  rx="1"/>
+            <rect class="bulb-base" x="39" y="115" width="22" height="8"  rx="1"/>
+            <rect class="bulb-contact" x="44" y="123" width="12" height="6" rx="3"/>
+          </svg>
+        </div>
+        <div class="bulb-caption" id="bulbCaption">As seen by a <span class="bulb-caption-name">HUMAN</span></div>
+        <div class="obs-info">
+          <div class="obs-body" id="obsBody"></div>
+        </div>
+      </div>
 
-        <!-- Vertical slider -->
-        <div class="slider-col">
+      <!-- Horizontal slider at bottom -->
+      <div class="slider-section">
+        <div class="slider-labels-row">
           <span class="slider-end-label">Slowest vision</span>
-          <div class="slider-track-wrap">
-            <input type="range" class="org-slider-v" id="orgSlider"
-                   min="0" max="10" step="1" value="3"/>
-            <div class="slider-emoji-col" id="emojiCol"></div>
-          </div>
           <span class="slider-end-label">Fastest vision</span>
         </div>
-
-        <!-- Bulb -->
-        <div class="bulb-col">
-          <div class="bulb-wrapper is-on" id="bulb-wrapper">
-            <div class="bulb-halo"></div>
-            <svg class="bulb-svg" viewBox="0 0 100 142" width="130" height="185" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path class="bulb-glass" d="M 50 6 C 26 6, 10 25, 10 48 C 10 65, 20 80, 35 90 L 35 99 L 65 99 L 65 90 C 80 80, 90 65, 90 48 C 90 25, 74 6, 50 6 Z"/>
-              <line class="bulb-wire" x1="43" y1="99" x2="43" y2="86" stroke-width="1.5" stroke-linecap="round"/>
-              <line class="bulb-wire" x1="57" y1="99" x2="57" y2="86" stroke-width="1.5" stroke-linecap="round"/>
-              <polyline class="bulb-filament" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="43,86 45,70 48,80 50,63 52,80 55,70 57,86"/>
-              <rect class="bulb-base" x="35" y="99"  width="30" height="8"  rx="1"/>
-              <rect class="bulb-base" x="37" y="107" width="26" height="8"  rx="1"/>
-              <rect class="bulb-base" x="39" y="115" width="22" height="8"  rx="1"/>
-              <rect class="bulb-contact" x="44" y="123" width="12" height="6" rx="3"/>
-            </svg>
-          </div>
-          <div class="bulb-caption" id="bulbCaption">As seen by a human</div>
-          <div class="obs-info">
-            <div class="obs-title" id="obsTitle"></div>
-            <div class="obs-body"  id="obsBody"></div>
-          </div>
-        </div>
-
-      </div><!-- /widget-body -->
+        <input type="range" class="org-slider-h" id="orgSlider"
+               min="0" max="10" step="1" value="3"/>
+        <div class="slider-tick-row" id="emojiCol"></div>
+      </div>
 
     </div><!-- /widget-wrapper -->
 
     <div class="prose">
-      <p>What you are seeing is not the bulb changing — it is physically identical throughout. What changes is the observer. The same light, experienced through different eyes, at different visual speeds.</p>
-      <p>Notice the direction: as you move down toward faster-vision animals, the bulb flickers more slowly. That is not a mistake. A housefly's visual system processes time so finely that the 100 Hz bulb — fast enough to appear continuous to us — looks obviously, slowly blinking to them. We will come back to why that matters.</p>
+      <p>The same light, seen through different eyes, at different visual speeds.</p>
+      <p>As you move toward faster-vision organisms, the bulb appears to flicker more slowly. That is not a mistake. A housefly processes time so finely that a 100 Hz bulb, fast enough to look steady to us, looks obviously and continuously blinking to it. We will come back to why that matters.</p>
     </div>
 
     <hr class="section-rule"/>
-    <h2 class="section-title">Why does the bulb flicker at all?</h2>
+    <h2 class="section-title">What is actually happening here?</h2>
 
     <div class="prose">
-      <p>A standard light bulb running on AC electricity does not produce continuous light. The current alternates direction 50 times per second in most countries (60 in the US), and the bulb completes a full bright–dark–bright cycle twice per AC cycle — which means it actually flickers at <strong>100 Hz</strong> (or 120 Hz in the US).</p>
+      <p>A standard AC bulb does not produce continuous light. It flickers at 100 Hz in most countries, and 120 Hz in the US. Whether that flicker is visible or not depends on an animal's CFF: the point above which flickering light stops looking like flicker and starts looking continuous. For humans, that threshold is around 60 Hz, so the 100 Hz flashes of a light bulb fuse into smooth, continuous light.</p>
 
-      <p>For humans, 100 Hz is above our CFF of ~60 Hz. Our visual system cannot resolve individual flashes at that rate and averages them into what feels like constant light. The bulb appears steady. It is not.</p>
+      <p>For a housefly, whose CFF is around 250 Hz, that same bulb falls well below its threshold. The fly can resolve each flash individually, the way you would notice a light blinking a few times a second. Every artificially lit room is, to a fly, visibly flickering.</p>
 
-      <p>For a housefly, whose CFF is around 250 Hz, 100 Hz falls well below their threshold. They see each flash individually — the way you would see a light blinking a few times a second. Every room lit by artificial light is, to a fly, permanently and visibly flickering.</p>
+      <p>That does not mean the fly is experiencing a degraded version of our reality. It is experiencing its own, shaped by millions of years of evolution. The bulb is the same. The perceptual world around it is not.</p>
 
-      <p>This difference in visual speed is what the German biologist Jakob von Uexküll called the <strong>Umwelt</strong> — the idea that every organism inhabits its own perceptual world, constructed from what its particular sensory system can detect. A fly is not experiencing a degraded version of our reality. It is experiencing its own, shaped by 300 million years of insect evolution. The bulb is the same. The Umwelt is not.</p>
+      <p>In the early 1900s, the German biologist Jakob von Uexküll proposed something quietly radical: every organism inhabits its own perceptual world, or 'umwelt', built from what its senses can detect. Our senses give us one version of reality. Another organism's senses give it another. What we experience is not the world itself, but the world as we are equipped to perceive it. Every creature mistakes its own Umwelt for the truth.</p>
     </div>
 
     <hr class="section-rule"/>
-    <h2 class="section-title">Three things this changes how I think about</h2>
+    <h2 class="section-title">What the Lamp Reveals About Other Worlds</h2>
 
     <div class="prose" style="margin-bottom:2rem;">
-      <p>The bulb is a neat demonstration. But the implications of visual speed differences go further than a flickering lamp.</p>
+      <p>A flickering bulb feels like a neat trick. But it points to something much stranger: animals are not all moving through the same visible world at the same pace. For some, your home may pulse with light. For others, your fastest movement may unfold with more warnings than you realize. What looks to us like one shared reality is actually split into different perceptual speeds.</p>
+      <p>Once you see that, ordinary things stop being ordinary. The agitated pet bird, the fly that always escapes, a sloth's slowness — none of these are random quirks. They are consequences of living in different perceptual worlds.</p>
     </div>
 
     <div class="impl-block">
       <div class="impl-number">01</div>
-      <h3 class="impl-title">Your pet bird is living under a constant strobe</h3>
+      <h3 class="impl-title">Your bird's personality may be your lighting</h3>
       <div class="prose">
-        <p>Parrots, canaries, and most pet birds have a CFF significantly higher than ours — typically in the 100–150 Hz range. A standard fluorescent or LED light that appears perfectly steady to you is visibly flickering to them. Research suggests this is a genuine stressor. Captive birds exposed to flickering artificial lighting show measurably higher stress behaviours — feather-plucking, agitation, repetitive movements — compared to birds kept under full-spectrum or natural light. Many owners attribute these behaviours to boredom or personality. The more likely explanation is that their living room is, from the bird's perspective, flickering incessantly.</p>
+        <p>Parrots, canaries, and many other pet birds process visual information faster than we do, which means that light that feels steady to us is likely flickering to them all the time. Research suggests that artificial lighting can be a genuine source of stress in captive birds, linked to agitation, feather-plucking, and repetitive behaviour. What owners dismiss as temperament or mood is likely because the room is pulsating incessantly for the bird.</p>
       </div>
     </div>
 
     <div class="impl-block">
       <div class="impl-number">02</div>
-      <h3 class="impl-title">When you try to swat a fly, it watches your hand arrive in slow motion</h3>
+      <h3 class="impl-title">The fly saw it coming long before you think</h3>
       <div class="prose">
-        <p>A housefly's CFF of ~250 Hz means it processes the world at roughly four times our temporal resolution. Motion that looks fast to us — a swinging hand, a rolled newspaper — unfolds across many more perceptual frames in the fly's visual system. It is not physically faster than us in any mechanical sense. But its perception of time is finer-grained, giving it significantly more visual information per second to detect and react to incoming threats. This is a large part of why flies are so difficult to catch. They are not clairvoyant. They simply have more time — perceptual time — to see what is coming.</p>
+        <p>A housefly processes the world at roughly four times our temporal resolution. A swinging hand or rolled newspaper does not arrive as one sudden blur for houseflies. It unfolds across many more perceptual frames, giving the fly more time to detect the threat and react. That is part of why flies are so difficult to catch. They are not performing a last-second miracle. They simply see your move in slow motion.</p>
       </div>
     </div>
 
     <div class="impl-block">
       <div class="impl-number">03</div>
-      <h3 class="impl-title">Visual speed and movement speed are not a coincidence</h3>
+      <h3 class="impl-title">A sloth is not slow because it is lazy</h3>
       <div class="prose">
-        <p>Look again at the organism list: snail and sloth at the slow end, dragonfly and housefly at the fast end. This maps almost perfectly onto how fast each animal moves and needs to react in the world. A dragonfly intercepting another insect mid-flight needs to process motion at high speed or it misses. A snail, moving slowly across a leaf, has no such requirement — and paying the ongoing energetic cost of a faster visual system would bring no return. Evolution is ruthlessly efficient: no animal develops faster vision than its body and lifestyle actually need. Vision speed, it turns out, is not a measure of sophistication. It is a measure of how fast your world moves.</p>
+        <p>If a sloth tried to move faster, the world would blur past faster than it could resolve, and it would crash. Since a sloth lives on leaves, it does not need speed to chase prey or make split-second escapes, so evolution slowed its muscles and visual system together. Over time, it lost the ability to move any faster because it did not need to. A dragonfly, on the other hand, needs rapid visual updates to intercept prey mid-flight or it misses. Fast vision is metabolically expensive, and evolution is very efficient: it does not pay for abilities an organism has no use for. Vision speed is thus not a measure of intelligence or sophistication. It is tuned, quite precisely, to the pace of life an organism actually lives.</p>
+      </div>
+    </div>
+
+    <div class="impl-block">
+      <div class="impl-number">04</div>
+      <h3 class="impl-title">Slow and fast belong to our world, not theirs</h3>
+      <div class="prose">
+        <p>What we call slow and fast are not universal truths. They are judgments made from within our own <strong><em>Umwelt</em></strong>. In another animal's <em>Umwelt</em>, we may be a flickering blur, much as a fly is in ours.</p>
       </div>
     </div>
 
     <div class="article-footer">
-      <p>This piece grew out of reading <em>An Immense World</em> by Ed Yong — a tour through the sensory worlds of other animals that is one of the most genuinely surprising books I have encountered in years. I am still reading it. If something else in it is worth building something around, I will add it here.</p>
+      <p>This piece grew out of reading <em>An Immense World</em> by Ed Yong, a book that opens up the sensory worlds of other animals with remarkable clarity and wonder. It is one of the most surprising books I have read in years. I am still reading it, and if I come across another idea worth building on, I may add it here.</p>
       <a class="book-ref" href="https://www.amazon.com/Immense-World-Animal-Senses-Reveal/dp/0593133234" target="_blank" rel="noopener">
         <span class="book-ref-text">An Immense World — Ed Yong →</span>
       </a>
     </div>
 
-    <hr class="section-rule"/>
-    <h2 class="section-title">How the visualisation works</h2>
-
-    <div class="prose">
-      <p>The flickering bulb is a simulation, not a literal replication of animal vision. To make another species' experience visible to human eyes, we use the following approach: if a bulb flickers at a certain fraction of an animal's CFF, we show it to you at that same fraction of your CFF. The relative perceptual position is preserved — scaled through your own visual system.</p>
+    <div class="appendix-note">
+      <div class="appendix-eyebrow">For the curious</div>
+      <h2>How this was simulated</h2>
+      <p>The flickering bulb is a simulation, not a literal recreation of animal vision. To make another species' experience visible to human eyes, the visualisation preserves relative perceptual position: if a bulb flickers at a certain fraction of an animal's CFF, it is shown to you at that same fraction of your own CFF.</p>
       <span class="math-formula">Simulated Hz = (Bulb Hz ÷ Observer CFF) × Human CFF (60)</span>
-      <p>So for a housefly (CFF 250 Hz) looking at a 100 Hz bulb: (100 ÷ 250) × 60 = 24 Hz. A 24 Hz flicker is slow and obvious to any human — which is precisely the point.</p>
-      <p>Because a 60 Hz screen cannot faithfully display frequencies above 30 Hz (its Nyquist limit), the animation is proportionally scaled down to keep all flickering organisms renderable and in the correct order. The formula values shown in the widget are the scientifically accurate ones.</p>
-      <p>This is an approximation. CFF varies between individuals, changes with light levels and fatigue, and the full experience of animal vision involves far more than flicker rate — eye structure, spectral sensitivity, field of view, and neural processing all differ dramatically across species. What the simulation captures is one dimension: temporal resolution. That one dimension turns out to be enough to make the point.</p>
-      <p>The visualisation was built with AI — part of a broader interest in using AI not just to find information but to reconstruct it into something you can see and interact with.</p>
+      <p>So for a housefly, with a CFF of 250 Hz, looking at a 100 Hz bulb:</p>
+      <span class="math-formula">(100 ÷ 250) × 60 = 24 Hz</span>
+      <p>A 24 Hz flicker looks slow and obvious to us. That is the point: not to reproduce fly vision literally, but to preserve where the bulb sits relative to the fly's visual speed. The values shown in the widget, however, are the organism's actual CFFs.</p>
+      <p>Because a 60 Hz screen cannot faithfully display flicker above 30 Hz, the animation is scaled down proportionally so that it remains viewable on a standard digital screen.</p>
+      <p>This is still only an approximation. CFF varies across individuals and conditions, and vision involves far more than flicker rate: eye structure, spectral sensitivity, field of view, and neural processing all differ across species. The simulation captures just one dimension, temporal resolution, but even that one dimension is enough to make the point.</p>
+      <p>The visualisation was built with AI, as part of a broader interest in using AI not just to retrieve information, but to turn it into something visible and interactive.</p>
     </div>
 
   </article>
@@ -480,17 +496,17 @@
   const DISPLAY_CEILING = 20;  // max display Hz — keeps all freqs safely below 30 Hz Nyquist
 
   const ORGANISMS = [
-    { icon:'🐌', name:'Snail',           cff:4,   body:'With a CFF of just 4 Hz, the 100 Hz bulb is far above its detection limit — it appears as <em>perfectly steady, continuous light</em>. Snails experience the world in extreme slow motion; rapid change is simply invisible to them.' },
-    { icon:'🦥', name:'Sloth',           cff:10,  body:'At 10 Hz, the 100 Hz bulb sits well above the sloth\'s threshold — perceived as <em>smooth, unflickering light</em>. For an animal that moves as slowly as it does, a fast visual system would be wasted energy.' },
-    { icon:'🐢', name:'Tortoise',        cff:15,  body:'With a CFF of 15 Hz, the 100 Hz bulb is far above their threshold — it appears as <em>perfectly steady light</em>, just as it does to us. Their visual world moves in slow motion compared to ours.' },
-    { icon:'👤', name:'Human',           cff:60,  body:'The 100 Hz bulb sits comfortably above our CFF of ~60 Hz. Our brain fuses the flashes into <em>smooth, continuous light</em>. Nothing seems unusual. This is the baseline — our reality.', isDefault: true },
-    { icon:'🐕', name:'Dog',             cff:80,  body:'A dog\'s CFF of ~80 Hz puts the 100 Hz bulb just above their threshold. It appears <em>barely steady</em> — right at the edge. Dogs likely perceive a faint instability from fluorescent lighting that we are completely oblivious to.' },
-    { icon:'🐈', name:'Cat',             cff:100, body:'A cat\'s CFF is ~100 Hz — exactly the bulb\'s flicker rate, right at their perceptual threshold. What we see as a steady glow produces an <em>uneasy, barely-continuous shimmer</em> for them.' },
-    { icon:'🐿️', name:'Ground squirrel', cff:120, body:'At a CFF of 120 Hz, the 100 Hz bulb falls clearly below their threshold — a <em>noticeable, rhythmic flicker</em>. Ground squirrels are highly visual animals; artificial lighting is genuinely perceptible to them as unstable.' },
-    { icon:'🐦', name:'Pigeon',          cff:145, body:'Pigeons process at ~145 Hz. The 100 Hz bulb is well below their threshold — a <em>visible, obvious flicker</em>. Every indoor space lit by artificial light is noticeably strobing to a pigeon.' },
-    { icon:'🦐', name:'Mantis shrimp',   cff:175, body:'Mantis shrimp have extraordinary visual systems — 16 types of colour receptors and a CFF of ~175 Hz. The 100 Hz bulb is a <em>clear, slow strobe</em> to them, on top of a colour palette we cannot begin to imagine.' },
-    { icon:'🐉', name:'Dragonfly',       cff:200, body:'Dragonflies are aerial predators with a CFF of ~200 Hz — evolved to track fast-moving prey mid-flight. The 100 Hz bulb is at half their threshold: an <em>obvious, unhurried strobe</em> in a world they perceive with extraordinary sharpness.' },
-    { icon:'🪰', name:'Housefly',        cff:250, body:'A housefly\'s CFF of ~250 Hz means the 100 Hz bulb is at just 40% of their threshold — as obviously blinking as a <em>slow, rhythmic flash</em> is to you. Every artificially lit room is permanently, visibly flickering for them. All the time.' },
+    { icon:'🐌', name:'Snail',           cff:4,   body:'The bulb looks completely steady. Rapid flicker disappears into one continuous glow.' },
+    { icon:'🦥', name:'Sloth',           cff:10,  body:'The light appears smooth and unflickering. Nothing about it would seem unusual.' },
+    { icon:'🐢', name:'Tortoise',        cff:15,  body:'The bulb still looks steady.<br>Its flicker is too fast for it to register clearly.' },
+    { icon:'👤', name:'Human',           cff:60,  body:'The light looks smooth and continuous.<br>To us, this is what normal looks like.', isDefault: true },
+    { icon:'🐕', name:'Dog',             cff:80,  body:'The bulb sits close to the edge of stability. It may feel faintly less steady than it does to us.' },
+    { icon:'🐈', name:'Cat',             cff:100, body:'The light sits right at the threshold.<br>It may appear slightly jittery to a cat.' },
+    { icon:'🐿️', name:'Ground squirrel', cff:120, body:'The bulb begins to flicker visibly.<br>The light no longer feels fully stable.' },
+    { icon:'🐦', name:'Pigeon',          cff:145, body:'The flicker is obvious. An indoor bulb like this would feel visibly unstable.' },
+    { icon:'🦐', name:'Mantis shrimp',   cff:175, body:'The bulb looks like a clear, slow strobe. Its timing is being resolved more finely than ours.' },
+    { icon:'🐉', name:'Dragonfly',       cff:200, body:'The flicker is unmistakable. What looks smooth to us would look broken to a dragonfly.' },
+    { icon:'🪰', name:'Housefly',        cff:250, body:'The bulb blinks plainly and rhythmically. Every artificially lit room would feel visibly flickering to a fly.' },
   ];
 
   let selected = ORGANISMS.find(o => o.isDefault);
@@ -498,7 +514,7 @@
 
   const bulbEl      = document.getElementById('bulb-wrapper');
   const captionEl   = document.getElementById('bulbCaption');
-  const obsTitleEl  = document.getElementById('obsTitle');
+  const captionName = captionEl.querySelector('.bulb-caption-name');
   const obsBodyEl   = document.getElementById('obsBody');
 
   function simHz(org)     { return (BULB_HZ / org.cff) * HUMAN_CFF; }
@@ -534,8 +550,7 @@
     document.querySelectorAll('.tick').forEach((t, i) =>
       t.classList.toggle('active', i === idx)
     );
-    captionEl.textContent = 'As seen by a ' + org.name.toLowerCase();
-    obsTitleEl.textContent = org.icon + '\u2002' + org.name;
+    captionName.textContent = org.name.toUpperCase();
     obsBodyEl.innerHTML   = org.body;
     startTicker(displayHz(org));
   }
@@ -547,7 +562,6 @@
       span.className = 'tick' + (org.isDefault ? ' active' : '');
       span.title     = org.name;
       span.innerHTML = org.icon + '<span class="tick-hz">' + org.cff + ' Hz</span>';
-      span.style.top   = (i / (ORGANISMS.length - 1) * 100) + '%';
       span.addEventListener('click', () => setObs(i));
       emojiCol.appendChild(span);
     });
