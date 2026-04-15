@@ -348,7 +348,7 @@
 
 <main>
   <div class="hero">
-    <div class="hero-label">Neuroscience · Perception · Biology</div>
+    <div class="hero-label" id="article-tags"></div>
     <h1>Vision has a speed.<br>And we are not <em>the fastest.</em></h1>
     <div class="hero-meta">
       <span>14 April 2026</span>
@@ -580,6 +580,17 @@
 
     setObs(ORGANISMS.findIndex(o => o.isDefault));
   });
+</script>
+
+
+<script src="../../assets/js/articles.js"></script>
+<script>
+  // Pull tags from the shared articles data so homepage cards and article page stay in sync.
+  const slug = window.location.pathname.replace(/\/$/, '').split('/').pop();
+  const meta = ARTICLES.find(a => a.slug === slug);
+  if (meta) {
+    document.getElementById('article-tags').textContent = meta.tags.join(' · ');
+  }
 </script>
 
 </body>
