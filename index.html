@@ -43,10 +43,16 @@
       text-decoration: none;
     }
 
+    /* ── Shared column ── */
+    .content-col {
+      max-width: 720px; margin: 0 auto;
+      padding: 0 2rem;
+      flex: 1;
+    }
+
     /* ── Page intro ── */
     .page-intro {
-      max-width: 720px; margin: 0 auto;
-      padding: 5rem 2rem 3.5rem;
+      padding-top: 5rem; padding-bottom: 2.5rem;
     }
     .page-intro-label {
       font-family: 'DM Mono', monospace;
@@ -67,9 +73,7 @@
 
     /* ── Article list ── */
     .article-list {
-      max-width: 720px; margin: 0 auto;
-      padding: 0 2rem 6rem;
-      flex: 1;
+      padding-bottom: 6rem;
     }
     .list-rule {
       border: none; border-top: 1px solid var(--border);
@@ -145,15 +149,17 @@
   <a href="/" class="site-name">An Immense World</a>
 </header>
 
-<div class="page-intro">
-  <div class="page-intro-label">All articles</div>
-  <h1>Things worth<br>looking closer at.</h1>
-  <p>A growing collection of ideas from books, papers, and curiosity — reconstructed into something you can see and play with.</p>
-</div>
+<div class="content-col">
+  <div class="page-intro">
+    <div class="page-intro-label">All articles</div>
+    <h1>Things worth<br>looking closer at.</h1>
+    <p>A growing collection of ideas from books, papers, and curiosity — reconstructed into something you can see and play with.</p>
+  </div>
 
-<div class="article-list" id="article-list">
-  <hr class="list-rule"/>
-  <!-- Cards are injected here by articles.js -->
+  <div class="article-list" id="article-list">
+    <hr class="list-rule"/>
+    <!-- Cards are injected here by articles.js -->
+  </div>
 </div>
 
 <footer class="site-footer">
