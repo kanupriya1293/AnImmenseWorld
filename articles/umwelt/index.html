@@ -501,8 +501,9 @@
   </footer>
 
   <script>
-    const BULB_HZ   = 100;  // bulb flicker frequency — variable for future UI control
-    const HUMAN_CFF = 60;   // human critical flicker fusion frequency
+    const BULB_HZ         = 100; // bulb flicker frequency — variable for future UI control
+    const HUMAN_CFF       = 60;  // human critical flicker fusion frequency
+    const DISPLAY_CEILING = 20;  // max display Hz — keeps all freqs safely below 30 Hz Nyquist
 
     const ORGANISMS = [
       { name: 'Snail',           cff: 4,   label: 'the bulb is far above its detection limit' },
@@ -520,6 +521,16 @@
 
     function simHz(org) {
       return (BULB_HZ / org.cff) * HUMAN_CFF;
+    }
+
+    // Scale flickering frequencies to the displayable range (≤ DISPLAY_CEILING Hz).
+    // simHz values of 24–50 Hz all exceed the 30 Hz Nyquist limit of a 60fps screen
+    // and alias to incorrect apparent frequencies. Scaling proportionally preserves
+    // the correct ordering while keeping everything faithfully renderable.
+    function displayHz(org) {
+      const hz = simHz(org);
+      if (hz >= HUMAN_CFF) return hz;                     // steady — value unused by ticker
+      return (hz / HUMAN_CFF) * DISPLAY_CEILING;          // e.g. 50 → 16.7 Hz, 24 → 8 Hz
     }
 
     // ── State ────────────────────────────────────────────
@@ -601,7 +612,7 @@
         btn.setAttribute('aria-selected', btn.dataset.name === org.name ? 'true' : 'false');
       });
       updateReadout(org);
-      startTicker(simHz(org));
+      startTicker(displayHz(org));
     }
 
     // ── Build organism list ──────────────────────────────
@@ -631,9 +642,7 @@
         if (document.hidden) {
           if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
         } else {
-          lastTs = null;
-          phase  = 0;
-          startTicker(simHz(selected));
+          startTicker(displayHz(selected));
         }
       });
     });
